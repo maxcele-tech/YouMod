@@ -517,7 +517,7 @@ jobs:
       - name: Upload to Bin
         env:
           FILENAME: YouMod_${{ env.YT_VERSION }}_v${{ env.YOUMOD_VERSION }}.ipa
-          BIN: ${{env.bin}}
+          BIN: ${{inputs.bin}}
         run: |
           curl --data-binary "@${FILENAME}" -H "Content-Type: application/octet-stream" "https://filebin.net/${BIN}/${FILENAME}"
           echo "https://filebin.net/${BIN}/${FILENAME}"
