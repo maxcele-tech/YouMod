@@ -519,7 +519,7 @@ jobs:
           FILENAME: YouMod_${{ env.YT_VERSION }}_v${{ env.YOUMOD_VERSION }}.ipa
           BIN: ${{env.bin}}
         run: |
-          curl -X POST --data-binary "@${FILENAME}" "https://filebin.net/${BIN}/${FILENAME}"
+          curl --data-binary "@${FILENAME}" -H "Content-Type: application/octet-stream" "https://filebin.net/${BIN}/${FILENAME}"
           echo "https://filebin.net/${BIN}/${FILENAME}"
 
       - name: Job Summary - Build Complete
